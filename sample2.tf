@@ -78,10 +78,10 @@ resource "azurerm_network_interface" "myterraformnic" {
     resource_group_name       = azurerm_resource_group.myterraformgroup.name
 
     ip_configuration {
-        name                          = "myNicConfiguration"
+        name                          = "myNicConfiguration1"
         subnet_id                     = azurerm_subnet.myterraformsubnet.id
         private_ip_address_allocation = "Static"
-        private_ip_address            = "10.0.1.10"
+        private_ip_address            = "10.0.1.11"
         public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
     }
 
@@ -89,9 +89,56 @@ resource "azurerm_network_interface" "myterraformnic" {
         name                          = "myNicConfiguration2"
         subnet_id                     = azurerm_subnet.myterraformsubnet.id
         private_ip_address_allocation = "Static"
-        private_ip_address            = "10.0.1.11"
+        private_ip_address            = "10.0.1.12"
     }
-
+    ip_configuration {
+        name                          = "myNicConfiguration3"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.13"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration4"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.14"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration5"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.15"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration6"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.16"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration7"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.17"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration8"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.18"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration9"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.19"
+    }
+    ip_configuration {
+        name                          = "myNicConfiguration10"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Static"
+        private_ip_address            = "10.0.1.20"
+    }
     tags = {
         environment = "Terraform Demo"
     }
@@ -141,10 +188,10 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     }
 
     source_image_reference {
-        publisher = "Canonical"
-        offer     = "UbuntuServer"
-        sku       = "16.04.0-LTS"
-        version   = "latest"
+        publisher = "OpenLogic"
+        offer     = "CentOS-CI"
+        sku       = "7-CI"
+        version   = "7.7.20191209"
     }
 
     computer_name  = "myvm"
