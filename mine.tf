@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "salesforce" {
 resource "azurerm_network_security_group" "salesforce" {
 
   name                = "nsg"
-  location            = "${azurerm_resource_group.salesforce.location}"
+  location            = "${azurerm_resource_group.salesforce.location.id}"
   resource_group_name = "${azurerm_resource_group.salesforce.name}"
   security_rule {
     name                       = "allow-ssh"
