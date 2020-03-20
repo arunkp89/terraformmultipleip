@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "myterraformgroup" {
-    name     = "salesforce"
+    name     = "salesforce1"
     location = "eastus"
 }
 
