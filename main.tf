@@ -120,14 +120,14 @@ resource "azurerm_network_interface_security_group_association" "example" {
     network_interface_id      = azurerm_network_interface.myterraformnic.id
     network_security_group_id = azurerm_network_security_group.myterraformnsg.id
 }
-resource "null_resource" "delay" {
-  provisioner "local-exec" {
-    command = "sleep 120"
-  }
-  triggers = {
-    "example" = "${azurerm_network_interface_security_group_association.example.id}"
-  }
-}
+#resource "null_resource" "delay" {
+#  provisioner "local-exec" {
+#    command = "sleep 120"
+#  }
+#  triggers = {
+#    "example" = "${azurerm_network_interface_security_group_association.example.id}"
+#  }
+#}
 
 resource "azurerm_linux_virtual_machine" "terraformvm" {
     name                  = "myVM"
@@ -153,5 +153,5 @@ resource "azurerm_linux_virtual_machine" "terraformvm" {
     admin_username = "azure"
     admin_password = "Password1234!"
     disable_password_authentication = false
-    depends_on = ["null_resource.delay"]
+ //   depends_on = ["null_resource.delay"]
 }
