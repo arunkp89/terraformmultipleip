@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "salesforce" {
 resource "azurerm_network_security_group" "salesforce" {
 
   name                = "nsg"
-  location            = "${azurerm_resource_group.salesforce.location.id}"
-  resource_group_name = "${azurerm_resource_group.salesforce.name}"
+  location            = "southcentralus"
+  resource_group_name = "salesforce"
   security_rule {
     name                       = "allow-ssh"
     priority                   = 1000
@@ -27,28 +27,28 @@ resource "azurerm_subnet_network_security_group_association" "salesforce" {
  resource "azurerm_virtual_network" "salesforce" {
  name                = "vnet"
  address_space       = ["10.0.0.0/24"]
- location            = "${azurerm_resource_group.salesforce.location}"
- resource_group_name = "${azurerm_resource_group.salesforce.name}"
+ location            = "southcentralus"
+ resource_group_name = "salesforce"
  depends_on          = ["azurerm_resource_group.salesforce"]
  }
 
 resource "azurerm_subnet" "salesforce" {
  name                 = "subnet"
- resource_group_name  = "${azurerm_resource_group.salesforce.name}"
+ resource_group_name  = "salesforce"
  virtual_network_name = "${azurerm_virtual_network.salesforce.name}"
  address_prefix       = "10.0.0.0/24"
 }
 resource "azurerm_public_ip" "salesforce" {
  name                         = "PUBLIC_IP_ADDRESS"
- location                     = "${azurerm_resource_group.salesforce.location}"
- resource_group_name          = "${azurerm_resource_group.salesforce.name}"
+ location                     = "southcentralus"
+ resource_group_name          = "salesforce"
  allocation_method            = "Static"
  depends_on          = ["azurerm_resource_group.salesforce"]
  }
 resource "azurerm_network_interface" "salesforce" {
   name                = "nic1"
-  location                     = "${azurerm_resource_group.salesforce.location}"
-  resource_group_name          = "${azurerm_resource_group.salesforce.name}"
+  location                     = "southcentralus"
+  resource_group_name          = "salesforce"
   ip_configuration {
     name                          = "ipconfig1"
     subnet_id                     = "${azurerm_subnet.salesforce.id}"
@@ -114,8 +114,8 @@ resource "azurerm_network_interface" "salesforce" {
 }
 resource "azurerm_virtual_machine" "salesforce" {
   name                  = "vm-1"
-  location              = "${azurerm_resource_group.salesforce.location}"
-  resource_group_name   = "${azurerm_resource_group.salesforce.name}"
+  location              = "southcentralus"
+  resource_group_name   = "salesforce"
   network_interface_ids = "${azurerm_network_interface.salesforce.id}"
   vm_size               = "Standard_B2ms"
   storage_image_reference {
