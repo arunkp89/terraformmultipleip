@@ -19,7 +19,7 @@ resource "azurerm_network_security_group" "salesforce" {
     destination_address_prefix = "*"
 }
 resource "azurerm_subnet_network_security_group_association" "salesforce" {
-  subnet_id                 = "${"azurerm_subnet.salesforce.id"}"
+  subnet_id                 = "${azurerm_subnet.salesforce.id}"
   network_security_group_id = "${azurerm_network_security_group.salesforce.id}"
   depends_on = ["azurerm_subnet.salesforce"]
 
@@ -35,7 +35,7 @@ resource "azurerm_subnet_network_security_group_association" "salesforce" {
 resource "azurerm_subnet" "salesforce" {
  name                 = "subnet"
  resource_group_name  = "salesforce"
- virtual_network_name = "${azurerm_virtual_network.salesforce.name}"
+ virtual_network_name = azurerm_virtual_network.salesforce.name
  address_prefix       = "10.0.0.0/24"
 }
 resource "azurerm_public_ip" "salesforce" {
@@ -135,5 +135,4 @@ resource "azurerm_virtual_machine" "salesforce" {
     admin_username = "azure"
     admin_password = "Password1234!"
   }
-}
 }
