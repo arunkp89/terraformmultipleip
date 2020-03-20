@@ -120,6 +120,14 @@ resource "azurerm_network_interface_security_group_association" "example" {
     network_interface_id      = azurerm_network_interface.myterraformnic.id
     network_security_group_id = azurerm_network_security_group.myterraformnsg.id
 }
+resource "null_resource" "delay" {
+  provisioner "local-exec" {
+    command = "sleep 120"
+  }
+  triggers = {
+    "before" = "${null_resource.before.id}"
+  }
+}
 
 resource "azurerm_linux_virtual_machine" "terraformvm" {
     name                  = "myVM"
