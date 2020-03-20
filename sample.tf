@@ -44,63 +44,63 @@ resource "azurerm_network_interface" "myterraformnic" {
 
     ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.11"
-    public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
+    public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
     primary                       = true
   }
   ip_configuration {
     name                          = "ipconfig2"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.2"
   }
   ip_configuration {
     name                          = "ipconfig3"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.3"
   }
   ip_configuration {
     name                          = "ipconfig4"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.4"
   }
   ip_configuration {
     name                          = "ipconfig5"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.5"
   }
   ip_configuration {
     name                          = "ipconfig6"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.6"
   }
   ip_configuration {
     name                          = "ipconfig7"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.7"
   }
   ip_configuration {
     name                          = "ipconfig8"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.8"
   }
   ip_configuration {
     name                          = "ipconfig9"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.9"
   }
   ip_configuration {
     name                          = "ipconfig10"
-    subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+    subnet_id                     = azurerm_subnet.myterraformsubnet.id
     private_ip_address_allocation = "static"
     private_ip_address            = "10.0.0.10"
   }
