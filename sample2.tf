@@ -198,6 +198,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     computer_name  = "myvm"
     admin_username = "azureuser"
     admin_password = "Password1234!"
+    disable_password_authentication = false
         
     boot_diagnostics {
         storage_account_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
