@@ -19,7 +19,7 @@ resource "azurerm_network_security_group" "salesforce" {
     destination_address_prefix = "*"
 }
 resource "azurerm_subnet_network_security_group_association" "salesforce" {
-  subnet_id                 = "${azurerm_subnet.salesforce.id}"
+  subnet_id                 = "${"azurerm_subnet.salesforce.id"}"
   network_security_group_id = "${azurerm_network_security_group.salesforce.id}"
   depends_on = ["azurerm_subnet.salesforce"]
 
