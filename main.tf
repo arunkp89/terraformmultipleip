@@ -125,7 +125,7 @@ resource "null_resource" "delay" {
     command = "sleep 120"
   }
   triggers = {
-    "before" = "${null_resource.before.id}"
+    "example" = "${azurerm_network_interface_security_group_association.example.id}"
   }
 }
 
@@ -153,5 +153,5 @@ resource "azurerm_linux_virtual_machine" "terraformvm" {
     admin_username = "azure"
     admin_password = "Password1234!"
     disable_password_authentication = false
-    
+    depends_on = ["null_resource.delay"]
 }
